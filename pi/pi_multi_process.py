@@ -33,7 +33,7 @@ class PI(object):
             float: Value of π
         """
         N = 0
-        for i in range(start, end):
+        for i in tqdm(range(start, end)):
             x = random.random()
             y = random.random()
             d = (x-0.5)**2+(y-0.5)**2
