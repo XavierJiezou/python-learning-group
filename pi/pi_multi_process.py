@@ -12,7 +12,7 @@ class PI(object):
         max_workers (int): Maximum number of processes. Default: the number of processors on the machine.
     """
 
-    def __init__(self, num_iterations: int = int(1e8), max_workers: int = os.cpu_count()) -> None:
+    def __init__(self, num_iterations: int = int(1e7), max_workers: int = os.cpu_count()) -> None:
         """Initialization
 
         Args:
@@ -21,8 +21,6 @@ class PI(object):
         """
         self.num_iterations = num_iterations
         self.max_workers = max_workers
-        # self.bar = tqdm(total=self.num_iterations)
-        # self.bar = 0
 
     def __calc__(self, start: int, end: int) -> float:
         """Calculate the value of π according to formula
@@ -35,7 +33,7 @@ class PI(object):
             float: Value of π
         """
         N = 0
-        for i in tqdm(range(start, end)):
+        for i in range(start, end):
             x = random.random()
             y = random.random()
             d = (x-0.5)**2+(y-0.5)**2
@@ -43,9 +41,6 @@ class PI(object):
                 N += 1
             else:
                 pass
-            # self.bar += 1
-            # print(f'{self.bar}/{self.num_iterations}', end='\r')
-            # self.bar.update()
         return N
 
     def __main__(self) -> float:
